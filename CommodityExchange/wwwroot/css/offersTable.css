@@ -1,0 +1,64 @@
+﻿.offers-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 20px;
+    border: 5px solid #fff;
+    border-top: 5px solid #fff;
+    border-bottom: 3px solid #fff;
+    border-collapse: collapse;
+    outline: 3px solid #292e33;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    background: #fff !important;
+}
+
+    .table th {
+        font-weight: bold;
+        padding: 7px;
+        background: #292e33;
+        border: none;
+        text-align: left;
+        font-size: 15px;
+        color: white;
+        border-top: 3px solid #fff;
+        border-bottom: 3px solid #292e33;
+    }
+
+    .table td {
+        padding: 7px;
+        border: none;
+        border-top: 3px solid #fff;
+        border-bottom: 3px solid #fff;
+        font-size: 15px;
+    }
+
+    .table tbody tr:nth-child(even) {
+        background: #f8f8f8 !important;
+    }
+
+.confirmOfferBtn {
+    background-color: #dfcbaa;
+    width: 100%;
+    border: none;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+    .confirmOfferBtn:hover {
+        opacity: 0.7;
+        transform: scale(1.04);
+        transition: all 1s ease-in-out;
+    }
+
+    .confirmOfferBtn a {
+        text-decoration: none;
+        color: #292e33;
+    }

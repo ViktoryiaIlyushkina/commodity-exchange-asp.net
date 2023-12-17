@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CommodityExchange</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/CommodityExchange.styles.css" asp-append-version="true" />
+    @await RenderSectionAsync("BarterListStyle", required: false)
+    @await RenderSectionAsync("SingleBarterStyle", required: false)
+    @await RenderSectionAsync("OfferFormStyle", required: false)
+    @await RenderSectionAsync("OffersTableStyle", required: false)
+    @await RenderSectionAsync("LoginStyle", required: false)
+    @await RenderSectionAsync("RegisterStyle", required: false)
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a asp-controller="Home" asp-action="Index" class="">ТОВАРНАЯ БИРЖА</a>
+                <a asp-controller="Barter" asp-action="AddBarter" class="">Создать аукцион</a>
+                <a asp-controller="Barter" asp-action="ShowMyBarters" class="">Мои аукционы</a>
+
+                <div class="navbar-wrap">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <p class="user-display">@User.Identity.Name</p>
+
+                        <form method="post" asp-controller="Account" asp-action="Logout">
+                            <input type="submit" value="Выход" class="log-out" />
+                        </form>
+                    }
+                    else
+                    {
+                        <a asp-controller="Account" asp-action="Login" class="sign-in">Вход</a>
+                        <a asp-controller="Account" asp-action="Register" class="sign-up">Регистрация</a>
+                    }
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - CommodityExchange
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,57 @@
+﻿@using CommodityExchange.Enums;
+@model List<OfferShowViewModel>
+
+@if (Model.Any())
+{
+
+    {
+        <div class="offers-container">
+            <table class="table">
+                <tr>
+                    <th>Название аукциона</th>
+                    <th>Фото</th>
+                    <th>Оферент</th>
+                    <th>Стартовая цена аукциона</th>
+                    <th>Цена офетры</th>
+                    <th>Статус оферты</th>
+                    <th>Действия</th>
+                </tr>
+
+                @foreach (var offer in Model)
+                {
+                    <tr>
+                        <td>@offer.BarterName</td>
+                        <td><img style='width:100px; height:100px;' src="data:image/jpeg;base64,@(Convert.ToBase64String(offer.Photo))" /></td>
+                        <td>@offer.Offeror</td>
+                        <td>@offer.StartPrice</td>
+                        <td>@offer.OfferPrice</td>
+                        <td>@offer.Status</td>
+                        @if (offer.Status != OfferStatus.Active)
+                        {
+                            <td>Сделка закрыта</td>
+                        }
+                        else
+                        {
+                            <td>
+                                <form method="post" asp-controller="Offer" asp-action="AcceptOffer" asp-route-offerId="@offer.OfferId">
+                                    <button type="submit" class="confirmOfferBtn">Принять оферту</button>
+                                </form>
+                            </td>
+                        }
+                    </tr>
+                }
+
+            </table>
+        </div>
+    }
+}
+else
+{
+    <p>Пусто</p>
+}
+
+
+@section OffersTableStyle
+    {
+    <link rel="stylesheet" href="~/css/offersTable.css" asp-append-version="true" />
+}

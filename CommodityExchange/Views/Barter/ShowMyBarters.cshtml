@@ -1,0 +1,41 @@
+﻿@model List<BarterViewModel>
+
+<h1 class="Title">Мои аукционы</h1>
+<hr>
+@if (Model.Any())
+{
+    <div class="">
+        <div class="">
+
+            @foreach (var barter in Model)
+            {
+                <div class="barter">
+                    <div class="barter-container">
+                        <h2 class="barter-container--name">@barter.Name</h2>
+                        <div class="barter-container--image">
+                            <img style='width:300px; height:300px;' src="data:image/jpeg;base64,@(Convert.ToBase64String(barter.Photo))" alt="">
+                        </div>
+                        <div class="barter-container--info">
+                            <h5 class="barter-container--info--status"><b>Статус:</b> @barter.Status</h5>
+                            <h5 class="barter-container--info--owner"><b>Владелец:</b> @barter.Owner</h5>
+                            <h5 class="barter-container--info--description"><b>Описание:</b> @barter.Description</h5>
+                            <h5 class="barter-container--info--price"><b>Начальная цена:</b> @barter.StartPrice BYN</h5>
+                            <h5 class="barter-container--info--creationTime"><b>Дата открытия:</b> @barter.CreationTime</h5>
+                            <h5 class="barter-container--info--closedTime"><b>Дата закрытия:</b> @barter.ClosedTime</h5>
+                            <button class="showOffersBtn"><a asp-controller="Offer" asp-action="ShowOffers" asp-route-barterId="@barter.Id">Показать оферты</a></button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+else
+{
+    <h1>Пусто</h1>
+}
+
+@section BarterListStyle
+    {
+    <link rel="stylesheet" href="~/css/barterList.css" asp-append-version="true" />
+}

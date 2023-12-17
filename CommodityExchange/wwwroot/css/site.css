@@ -1,0 +1,46 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  min-width: 800px;
+}
+
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    min-width: 1000px;
+    background-color: #dfcbaa;
+}
+
+.navbar-wrap {
+    display: flex;
+    flex-direction: row;
+}
+
+    .navbar-wrap a, .navbar-wrap p, .navbar-wrap form {
+        margin: 10px;
+        text-decoration: none;
+        color: #292e33;
+    }
+
+.container a {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    font-weight: 800;
+    text-decoration: none;
+    color: #292e33;
+}

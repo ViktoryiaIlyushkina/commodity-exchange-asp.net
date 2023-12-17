@@ -1,0 +1,35 @@
+﻿@model LoginViewModel
+
+<div class="login-container">
+    <form method="post" asp-controller="Account" asp-action="Login"
+          asp-route-returnUrl="@Model.ReturnUrl" class="login-container--form">
+        <div class="login-container--Title">
+            <h1>Вход</h1>
+        </div>
+        <hr>
+        <div asp-validation-summary="ModelOnly"></div>
+        <div>
+            <label asp-for="Email"></label><br />
+            <input asp-for="Email" />
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div>
+            <label asp-for="Password"></label><br />
+            <input asp-for="Password" />
+            <span asp-validation-for="Password"></span>
+        </div>
+        <div class="login-container--rememberMe">
+            <label asp-for="RememberMe"></label><br />
+            <input asp-for="RememberMe" />
+        </div>
+        <div>
+            <button class="loginBtn" type="submit">Войти</button>
+        </div>
+    </form>
+</div>
+
+
+@section LoginStyle
+    {
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+}

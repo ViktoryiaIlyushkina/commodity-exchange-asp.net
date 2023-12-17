@@ -1,0 +1,43 @@
+﻿@model OfferAddViewModel
+
+<div class="offer-container">
+    <form method="post" asp-controller="Offer" asp-action="AddOffer" class="offer-container--form" enctype="multipart/form-data">
+        <div class="offer-container--Title">
+            <h1>Создание Оферты</h1>
+       </div>
+        <hr>
+        <p><b>Название аукциона: </b>@Model.BarterName</p>
+        <div class="offer-container--img">
+            <img style='width:350px; height:300px;' src="data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.BarterPhoto))" />
+        </div>
+        <p><b>Стартовая цена: </b>@Model.StartPrice BYN</p>
+        <p><b>Владелец: </b>@Model.Offeror</p>
+        <div>
+            <input asp-for="BarterId" hidden />
+            <input asp-for="BarterName" hidden />
+            <input asp-for="OfferorId" hidden />
+            <input asp-for="Offeror" hidden />
+            <input asp-for="StartPrice" hidden />
+            <input asp-for="Status" hidden />
+        </div>
+
+        <div asp-validation-summary="ModelOnly"></div>
+
+        <div>
+            <label asp-for="OfferPrice"></label><br />
+            <input asp-for="OfferPrice" />
+            <span asp-validation-for="OfferPrice"></span>
+        </div>
+        <div>
+            <button type="submit" class="confirmOfferBtn">Подтвердить</button>
+        </div>
+    </form>
+</div>
+
+
+
+
+@section OfferFormStyle
+    {
+    <link rel="stylesheet" href="~/css/offerForm.css" asp-append-version="true" />
+}

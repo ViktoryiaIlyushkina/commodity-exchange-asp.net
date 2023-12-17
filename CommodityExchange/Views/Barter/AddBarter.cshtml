@@ -1,0 +1,42 @@
+﻿@model BarterAddViewModel
+
+<div class="addBarter-container">   
+    <form method="post" asp-controller="Barter" asp-action="AddBarter" class="addBarter-container--form" enctype="multipart/form-data">
+        <div class="addBarter-container--Title">
+            <h1>Создать Аукцион</h1>
+        </div>
+        <hr>
+        <div asp-validation-summary="ModelOnly"></div>
+        <div >
+            <label asp-for="Name"></label><br />
+            <input asp-for="Name" class="addBarter-container--Name" />
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div>
+            <input name="Photo" type="file" class="addBarter-container--Photo" />
+        </div>
+        <div>
+            <label asp-for="Description"></label><br />
+            <textarea asp-for="Description" class="addBarter-container--Description"></textarea>
+            <span asp-validation-for="Description"></span>
+        </div>
+        <div>
+            <label asp-for="StartPrice" class="addBarter-container--StartPrice"></label><br />
+            <input asp-for="StartPrice" />
+            <span asp-validation-for="StartPrice"></span>
+        </div>
+        <div>
+            <button type="submit" class="addOfferBtn">Добавить</button>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+@section SingleBarterStyle
+    {
+    <link rel="stylesheet" href="~/css/singleBarter.css" asp-append-version="true" />
+}

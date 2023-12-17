@@ -1,0 +1,46 @@
+﻿@model RegisterViewModel
+
+<div class="register-container">
+    <form method="post" asp-controller="Account" asp-action="Register" class="register-container--form">
+        <div class="register-container--Title">
+            <h1>Регистрация</h1>
+        </div>
+        <hr>
+        <div asp-validation-summary="ModelOnly"></div>
+        <div>
+            <label asp-for="Name"></label><br />
+            <input asp-for="Name" />
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div>
+            <label asp-for="Email"></label><br />
+            <input asp-for="Email" />
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div>
+            <label asp-for="PhoneNumber"></label><br />
+            <input asp-for="PhoneNumber" />
+            <span asp-validation-for="PhoneNumber"></span>
+        </div>
+        <div>
+            <label asp-for="Password"></label><br />
+            <input asp-for="Password" />
+            <span asp-validation-for="Password"></span>
+        </div>
+        <div>
+            <label asp-for="ConfirmPassword"></label><br />
+            <input asp-for="ConfirmPassword" />
+            <span asp-validation-for="ConfirmPassword"></span>
+        </div>
+        <div class="clearfix">
+            <button type="submit" class="registerBtn">Зарегистрировать</button>
+        </div>
+    </form>
+</div>
+
+
+
+@section RegisterStyle
+    {
+    <link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />
+}
